@@ -3,15 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="../src/auth/login.js"></script>
+    <script type="module" src="../src/auth/login.js" defer></script>
+    <script type="module" src="../src/auth/tabMenu.js"></script>
+    <link rel="stylesheet" href="./test.css" />
     <title>Admin</title>
   </head>
   <body>
     <header>
-      <a href="./admin.html">Admin</a>
       <a href="../index.html">Create new sumbission</a>
       <a href="./edit.html">Edit previous sumbission</a>
     </header>
-    <main></main>
+    <main>
+      <section>
+        <form id="login">
+          <label for="email">Email:</label><br />
+          <input type="text" name="email" id="email" required /><br /><br />
+
+          <label for="password">Password:</label><br />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+          /><br /><br />
+          <button type="submit">Login</button>
+        </form>
+        <button type="submit" id="logout">Logout</button>
+      </section>
+      <section>
+        <main>
+          <div class="container">
+            <div class="tab">
+              <div class="tab-menu">
+                <button
+                  class="tab-menu-link is-active"
+                  data-content="attending"
+                >
+                  <span data-title="attending">Attending</span>
+                </button>
+
+                <button class="tab-menu-link" data-content="allergies">
+                  <span data-title="allergies">Allergies</span>
+                </button>
+
+                <button class="tab-menu-link" data-content="not-attending">
+                  <span data-title="not-attending">Cannot attend</span>
+                </button>
+
+                <button class="tab-menu-link" data-content="search">
+                  <span data-title="search">Search</span>
+                </button>
+              </div>
+
+              <div class="tab-bar">
+                <div class="tab-bar-content" id="attending">
+                  <div class="texts" id="attending-content"></div>
+                </div>
+
+                <div class="tab-bar-content" id="allergies">
+                  <div class="texts" id="allergies-content"></div>
+                </div>
+
+                <div class="tab-bar-content" id="not-attending">
+                  <div class="texts" id="not-attending-content"></div>
+                </div>
+
+                <div class="tab-bar-content" id="search">
+                  <div class="texts" id="search-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+    </main>
   </body>
 </html>
