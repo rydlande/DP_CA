@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="./src/api/create.js"></script>
+    <title>Create</title>
+  </head>
+  <body>
+    <header>
+      <a href="./public/admin.html">Admin</a>
+      <a href="./public/edit.html">Edit previous answer with ID</a>
+    </header>
+
+    <main>
+      <form id="myForm">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="attending">Attending:</label>
+        <input
+          type="checkbox"
+          id="attending"
+          name="attending"
+          checked
+        /><br /><br />
+
+        <label for="companion">Companion:</label><br />
+        <input type="text" id="companion" name="companion" /><br /><br />
+
+        <label for="allergy">Allergy:</label><br />
+        <input type="text" id="allergy" name="allergy" /><br /><br />
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>

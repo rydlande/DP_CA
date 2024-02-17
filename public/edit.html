@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="../src/api/update.js"></script>
+    <title>Edit</title>
+  </head>
+  <body>
+    <header>
+      <a href="./admin.html">Admin</a>
+      <a href="../index.html">Create new sumbission</a>
+    </header>
+
+    <main>
+      <form id="editForm">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required /><br /><br />
+
+        <label for="id">Name:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="attending">Attending:</label>
+        <input
+          type="checkbox"
+          id="attending"
+          name="attending"
+          checked
+        /><br /><br />
+
+        <label for="companion">Companion:</label>
+        <input type="text" id="companion" name="companion" /><br /><br />
+
+        <label for="allergy">Allergy:</label>
+        <input type="text" id="allergy" name="allergy" /><br /><br />
+        <button type="submit">Submit</button>
+        <p id="response"></p>
+      </form>
+    </main>
+  </body>
+</html>
