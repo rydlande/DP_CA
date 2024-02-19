@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (error) {
       console.error(error);
+      alert('An error occurred while submitting data. Please try again.');
     }
   }
 
