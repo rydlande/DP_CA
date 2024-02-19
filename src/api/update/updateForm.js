@@ -73,5 +73,4 @@ function updateForm(data) {
     );
   });
 }
-
 export default updateForm;

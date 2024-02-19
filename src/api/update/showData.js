@@ -37,5 +37,4 @@ function renderShowData(data) {
     attendingContent.appendChild(contentDiv);
   });
 }
-
 export default renderShowData;
