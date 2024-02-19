@@ -8,9 +8,9 @@ function renderAll(data) {
   const companion = document.createElement('h4');
   const attending = document.createElement('h4');
   const allergy = document.createElement('h4');
-  const button = document.createElement('button');
-  button.setAttribute('type', 'button');
-  button.textContent = 'Delete';
+  const deleteButton = document.createElement('button');
+  deleteButton.setAttribute('type', 'button');
+  deleteButton.textContent = 'Delete';
   contentDiv.classList.add('content');
 
   id.textContent = `ID: ${data.id}`;
@@ -32,7 +32,7 @@ function renderAll(data) {
     allergy.textContent = '';
   }
 
-  button.addEventListener('click', async () => {
+  deleteButton.addEventListener('click', async () => {
     try {
       await pb.collection('data').delete(data.id);
       contentDiv.remove();
@@ -40,7 +40,8 @@ function renderAll(data) {
       alert('An error occurred while submitting data. Please try again.');
     }
   });
-  contentDiv.append(id, name, companion, attending, allergy, button);
+
+  contentDiv.append(id, name, companion, attending, allergy, deleteButton);
   attendingContent.appendChild(contentDiv);
 }
 export default renderAll;

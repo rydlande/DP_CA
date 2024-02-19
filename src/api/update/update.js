@@ -1,6 +1,5 @@
 import pb from '../../lib/pocketbase.js';
-import BASE_URL from '../../lib/base.js';
-
+import { BASE_URL } from '../../lib/base.js';
 import renderShowData from './showData.js';
 import updateForm from './updateForm.js';
 import updateShowData from './updateShowData.js';
