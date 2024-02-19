@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer type="module" src="../src/api/update.js"></script>
+    <script type="module" src="../src/api/update.js" defer></script>
     <link rel="stylesheet" href="../src/css/index.css" />
     <title>Edit</title>
   </head>
@@ -55,29 +55,21 @@
           </svg>
         </div>
         <div class="content flex">
-          <form id="editForm">
-            <label for="id">ID:</label><br />
-            <input type="text" id="id" name="id" required /><br /><br />
-
-            <label for="id">Name:</label><br />
-            <input type="text" id="name" name="name" required /><br /><br />
-
-            <label for="companion">Companion:</label><br />
-            <input type="text" id="companion" name="companion" /><br /><br />
-
-            <label for="allergy">Allergy:</label><br />
-            <input type="text" id="allergy" name="allergy" /><br /><br />
-            <label for="attending">Attending:</label><br />
+          <form id="enterIdForm">
+            <label for="enterId">Please enter the given ID:</label><br />
             <input
-              type="checkbox"
-              id="attending"
-              name="attending"
-              checked
+              type="text"
+              id="enterId"
+              name="enterId"
+              required
             /><br /><br />
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitID">Submit</button>
             <p id="response"></p>
           </form>
         </div>
+      </div>
+      <div>
+        <form id="editForm"></form>
       </div>
     </section>
   </body>
