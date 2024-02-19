@@ -23,10 +23,7 @@ function renderCreatedData(data) {
     attending.textContent = `Attending: no, unfortunately can't come`;
     name.textContent = `Name: ${data.name}`;
   }
-
   contentDiv.append(success, id, name, date, attending, allergy);
-
   attendingContent.appendChild(contentDiv);
 }
-
 export default renderCreatedData;

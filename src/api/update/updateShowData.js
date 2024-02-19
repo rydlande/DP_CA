@@ -32,5 +32,4 @@ function updateShowData(data) {
   );
   attendingContent.appendChild(contentData);
 }
-
 export default updateShowData;

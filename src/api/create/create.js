@@ -1,9 +1,5 @@
+import pb from '../../lib/pocketbase.js';
 import renderCreatedData from './createdData.js';
-import PocketBase from 'https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.es.mjs';
-
-const url = 'https://rydlande.pockethost.io/';
-const pb = new PocketBase(url);
-
 const form = document.querySelector('#createForm');
 const attendingInput = document.querySelector('#attending');
 const companionInput = document.querySelector('#companion');
@@ -32,5 +28,4 @@ async function handleSubmit(e) {
     alert('An error occurred while submitting data. Please try again.');
   }
 }
-
 form.addEventListener('submit', handleSubmit);
