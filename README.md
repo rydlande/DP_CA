@@ -4,11 +4,11 @@
 
 This project utilizes PocketBase as the backend infrastructure to manage and store data for a web application. Below is an explanation of the key components:
 
-### Production API Endpoint
+## Production API Endpoint
 
 The production API endpoint is available at the following URL: `https://rydlande.pockethost.io`.
 
-### Datastore
+## Datastore
 
 The datastore in PocketBase serves as the underlying database system where all the data for the application is stored. It consists of the following key elements:
 
@@ -21,7 +21,7 @@ The datastore in PocketBase serves as the underlying database system where all t
 
 (I have not used indexes in this project).
 
-### Endpoints
+## Endpoints
 
 The application interacts with the PocketBase backend through API endpoints, allowing for data manipulation and retrieval. The following endpoints are utilized:
 
