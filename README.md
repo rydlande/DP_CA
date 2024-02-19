@@ -62,3 +62,16 @@ HAVING COUNT(*) > 0
 ```
 
 This query groups records in the "data" collection by allergy, calculates the count of each unique allergy, and filters out those with a count of zero.
+
+## PocketHost Integration
+
+PocketHost is a cloud hosting service provided by PocketBase, offering scalable and reliable hosting solutions for PocketBase applications. In this project, PocketHost was used to host the backend API, providing a secure and efficient environment for data storage and management.
+
+## CodePen Resources
+
+To style the tab-bar and add color to the project, the following CodePen resources were utilized:
+
+1. [Tab Bar on Admin-page](https://codepen.io/syrizaldev/pen/KKVeymK)
+2. [Blue Wave](https://codepen.io/goodkatz/pen/LYPGxQz)
+
+These resources were integrated into the project to enhance the user interface and provide a better user experience (also, just for fun).
