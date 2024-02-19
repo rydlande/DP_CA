@@ -1,45 +1,71 @@
+import renderShowData from './showData.js';
+import updateForm from './updateForm.js';
+import updateShowData from './updateShowData.js';
 import PocketBase from 'https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dist/pocketbase.es.mjs';
 
 const url = 'https://rydlande.pockethost.io/';
 const pb = new PocketBase(url);
 
 const editForm = document.querySelector('#editForm');
-const editId = document.querySelector('#id');
-const nameInput = document.querySelector('#name');
-const attendingInput = document.querySelector('#attending');
-const companionInput = document.querySelector('#companion');
-const allergyInput = document.querySelector('#allergy');
+editForm.style.display = 'none';
 
-const response = document.querySelector('#response');
+document.addEventListener('DOMContentLoaded', () => {
+  const URL = 'https://rydlande.pockethost.io/api/collections/data/records';
+  const enterIdForm = document.querySelector('#enterIdForm');
 
-const handleAttendingChange = () => {
-  const attendingChecked = attendingInput.checked;
-  companionInput.disabled = !attendingChecked;
-  allergyInput.disabled = !attendingChecked;
-};
-attendingInput.addEventListener('change', handleAttendingChange);
+  const enterIdInput = document.querySelector('#enterId');
+  const idValue = enterIdInput.value;
 
-async function update(e) {
-  e.preventDefault();
+  async function getData(e) {
+    e.preventDefault();
 
-  const id = editId.value;
+    try {
+      const res = await fetch(`${URL}?filter=id='${idValue}'`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-  const newData = {
-    name: nameInput.value,
-    attending: attendingInput.checked,
-    companion: companionInput.value,
-    allergy: allergyInput.value,
-  };
-
-  try {
-    const record = await pb.collection('data').update(id, newData);
-    console.log('Record updated:', record);
-    response.innerHTML = 'Record updated successfully!';
-    editForm.reset();
-  } catch (error) {
-    console.error('Error updating record:', error);
-    response.innerHTML = `Error: ${error.message}`;
+      if (!res.ok) {
+        throw new Error('API request failed');
+      } else {
+        const data = await res.json();
+        console.log(data);
+        renderShowData(data);
+        updateForm(data);
+        editForm.style.display = 'block';
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
-}
 
-editForm.addEventListener('submit', update);
+  enterIdForm.addEventListener('submit', getData);
+
+  async function updateFormData(e) {
+    e.preventDefault();
+
+    const attending = document.querySelector('#attending');
+    const name = document.querySelector('#name');
+    const companion = document.querySelector('#companion');
+    const allergy = document.querySelector('#allergy');
+
+    const newData = {
+      attending: attending.checked,
+      name: name.value,
+      companion: companion.value,
+      allergy: allergy.value,
+    };
+
+    try {
+      const data = await pb.collection('data').update(idValue, newData);
+      console.log(data);
+      updateShowData(data);
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while submitting data. Please try again.');
+    }
+  }
+  editForm.addEventListener('submit', updateFormData);
+});
