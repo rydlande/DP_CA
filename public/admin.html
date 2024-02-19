@@ -3,15 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="../src/auth/login.js"></script>
+    <!-- <script type="module" src="../src/auth/login.js" defer></script> -->
+    <script type="module" src="../src/auth/admin.js" defer></script>
+    <link rel="stylesheet" href="../src/css/admin.css" />
     <title>Admin</title>
   </head>
   <body>
     <header>
-      <a href="./admin.html">Admin</a>
-      <a href="../index.html">Create new sumbission</a>
-      <a href="./edit.html">Edit previous sumbission</a>
+      <div class="inner-header">
+        <a href="../index.html">
+          <h1>Create new sumbission</h1>
+        </a>
+        <a href="./edit.html"><h1>Edit previous sumbission</h1></a>
+      </div>
     </header>
-    <main></main>
+    <main>
+      <section>
+        <div class="container">
+          <div class="tab">
+            <div class="tab-menu">
+              <button class="tab-menu-link is-active" data-content="attending">
+                <span data-title="attending">Attending</span>
+              </button>
+
+              <button class="tab-menu-link" data-content="allergies">
+                <span data-title="allergies">Allergies</span>
+              </button>
+
+              <button class="tab-menu-link" data-content="not-attending">
+                <span data-title="not-attending">Cannot attend</span>
+              </button>
+
+              <button class="tab-menu-link" data-content="all">
+                <span data-title="all">All enteries</span>
+              </button>
+            </div>
+
+            <div class="tab-bar">
+              <div class="tab-bar-content" id="attending"></div>
+
+              <div class="tab-bar-content" id="allergies"></div>
+
+              <div class="tab-bar-content" id="not-attending"></div>
+
+              <div class="tab-bar-content" id="all"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- LOGIN AND LOGOUT -->
+      <!-- <section>
+        <form id="login">
+          <label for="email">Email:</label><br />
+          <input type="text" name="email" id="email" required /><br /><br />
+
+          <label for="password">Password:</label><br />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+          /><br /><br />
+          <button type="submit">Login</button>
+        </form>
+        <button type="submit" id="logout">Logout</button>
+      </section> -->
+    </main>
   </body>
 </html>
