@@ -1,4 +1,4 @@
-import BASE_URL from '../../lib/base.js';
+import { BASE_URL } from '../../lib/base.js';
 import renderGuests from './attending.js';
 import renderAllergies from './allergies.js';
 import renderNotAttending from './notAttending.js';
@@ -48,9 +48,9 @@ async function showingData() {
       data.items.forEach((data) => {
         renderGuests(data);
         renderNotAttending(data);
-        renderAllergies(data);
         renderAll(data);
       });
+      renderAllergies();
     }
   } catch (error) {
     alert('An error occurred while submitting data. Please try again.');

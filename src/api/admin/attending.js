@@ -4,7 +4,7 @@ const attendingContent = document.querySelector('#attending');
 function renderGuests(data) {
   const contentDiv = document.createElement('div');
   const name = document.createElement('h2');
-  const date = document.createElement('h4');
+  const companion = document.createElement('h4');
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.textContent = 'Not attending';
@@ -21,11 +21,16 @@ function renderGuests(data) {
     }
   });
 
-  if (data.attending === true) {
+  if (data.attending === true && data.companion != '') {
     contentDiv.classList.add('content');
     name.textContent = `${data.name}`;
-    date.textContent = `${data.companion}`;
-    contentDiv.append(name, date, button);
+    companion.textContent = `Companion: ${data.companion}`;
+    contentDiv.append(name, companion, button);
+    attendingContent.appendChild(contentDiv);
+  } else if (data.attending === true) {
+    contentDiv.classList.add('content');
+    name.textContent = `${data.name}`;
+    contentDiv.append(name, button);
     attendingContent.appendChild(contentDiv);
   }
 }
