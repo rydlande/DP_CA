@@ -3,7 +3,7 @@ import PocketBase from 'https://cdn.jsdelivr.net/gh/pocketbase/js-sdk@latest/dis
 const url = 'https://rydlande.pockethost.io/';
 const pb = new PocketBase(url);
 
-const myForm = document.querySelector('#myForm');
+const form = document.querySelector('#createForm');
 const attendingInput = document.querySelector('#attending');
 const companionInput = document.querySelector('#companion');
 const allergyInput = document.querySelector('#allergy');
@@ -19,14 +19,14 @@ attendingInput.addEventListener('change', handleAttendingChange);
 async function handleSubmit(e) {
   e.preventDefault();
 
-  const formData = new FormData(myForm);
+  const formData = new FormData(form);
 
   try {
     const data = await pb
       .collection('data')
       .create(Object.fromEntries(formData.entries()));
     alert('Data sumbitted successfully');
-    myForm.reset();
+    form.reset();
     console.log(data);
   } catch (error) {
     console.log('Error submitting data:', error);
@@ -34,7 +34,7 @@ async function handleSubmit(e) {
   }
 }
 
-myForm.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
 await pb
   .collection('data')

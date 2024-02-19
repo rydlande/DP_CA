@@ -1,4 +1,7 @@
-import renderGuest from './tabs.js';
+import renderGuests from '../module/attending.js';
+import renderAllergies from '../module/allergies.js';
+import renderNotAttending from '../module/notAttending.js';
+import renderAll from '../module/showAll.js';
 
 const URL = 'https://rydlande.pockethost.io/api/collections/data/records';
 
@@ -15,8 +18,12 @@ async function showingData() {
       throw new Error('API request failed');
     } else {
       const data = await res.json();
-      data.items.forEach((guest) => {
-        renderGuest(guest);
+      data.items.forEach((data) => {
+        console.log(data);
+        renderGuests(data);
+        renderNotAttending(data);
+        renderAllergies(data);
+        renderAll(data);
       });
     }
   } catch (error) {
